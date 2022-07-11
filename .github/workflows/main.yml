@@ -5,13 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-versino: [ 17.x ]
+                # Support LTS versions based on https://nodejs.org/en/about/releases/
+        node-version: ['14', '16', '18']
     steps:
-      ‐ uses: actions/checkout@v3
-      ‐ name: Use Node.js ${{matrix.node-versino}}
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{matrix.node-versino}}
+          node-version: ${{ matrix.node-version }}
+          
+      - name: Install dependencies
+        run: npm install
 
       ‐ name: Setup
         run: npm ci
