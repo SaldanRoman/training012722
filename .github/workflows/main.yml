@@ -9,4 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install node ${{matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}}
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
