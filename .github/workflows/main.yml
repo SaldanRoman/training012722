@@ -1,14 +1,17 @@
 name: CI Angular app through Github Actions
-on: push
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-versino: [ 17.x ]
     steps:
       ‐ uses: actions/checkout@v3
-      ‐ name: Use Node.js 17.x
+      ‐ name: Use Node.js ${{matrix.node-versino}}
         uses: actions/setup-node@v3
         with:
-          node-version: 17.x
+          node-version: ${{matrix.node-versino}}
 
       ‐ name: Setup
         run: npm ci
