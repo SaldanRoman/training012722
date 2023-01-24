@@ -18,6 +18,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.header')?.textContent).toContain('Action tests!');
+    expect(compiled.querySelector('.header')?.textContent).toContain('Action tests1');
   });
 });
